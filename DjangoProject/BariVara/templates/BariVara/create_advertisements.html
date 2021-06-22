@@ -1,0 +1,44 @@
+{% extends "BariVara/Base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .container form{
+            margin-top: 2%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border: 2px solid black;
+            text-align: center;
+            color:white;
+            box-shadow: 5px 5px 50px #000;
+            padding-bottom: 2%;
+            background-color: rgba(0, 0, 0, 0.5);      
+        }
+        .container form input{
+            width: 50%;
+            margin-left: 25%;
+        }
+        .container form input:hover{
+            background-color: #34495E;
+            color:white;
+        }
+        .container #div_id_place{
+            width: 50%;
+            margin-left: 25%;
+        }
+        .container p{
+            margin-left: 20%;
+        }
+        
+</style>
+<div class="container">
+<form action ="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    {{formset.as_p}}
+    <button class="btn btn btn-primary" type="submit"> Post </button>
+    
+</form>
+</div>             
+{% endblock content %}

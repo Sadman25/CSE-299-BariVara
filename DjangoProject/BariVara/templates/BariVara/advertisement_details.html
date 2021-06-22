@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BariVara</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">  
+</head>
+<style>
+    body{
+      background-color:  #34495e;
+      
+    }
+    nav{
+        width: 100%;
+        background-color: #2C3E50;
+        }
+        nav img{
+            width: 6%;
+            height: auto;
+            
+        }
+        nav ul li {
+            list-style-type: none;
+            display: inline-block;
+            
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding-right: 15px;
+            display: inline-block;
+            border: none;
+        }
+        nav ul li a:hover {
+            background-color: #34495E;
+            color:black;
+        }
+
+        nav form button i{
+            margin-right: 6%;
+        }
+        
+</style>
+<body>
+    <nav class="navbar navbar-transparent " >
+        <img src="{% static 'BariVara/Logo.png' %}">
+
+        <ul>
+            <li> <a href='{% url 'HomePage' %}'> Home </a></li>
+            <li> <a href='{% url 'create_advertisements' %}'> Create Advertisement </a></li>
+            <li> <a href='{% url 'your_advertisements' %}'> Your Advertisements </a></li>
+            <li> <a href='{% url 'profile' %}'> Profile </a></li>
+            
+            <li> <a href="#"> About</a></li>
+            <li> <a href='{% url 'logout' %}'> Log Out </a></li>
+        </ul>
+
+        
+
+        <form method="get" action="/BariVara/search" class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search By Area"  aria-label="Search" name="query" id="query">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i><a>Search</a></button>
+         </form>
+         
+        <form method="get" action="/BariVara/filter" class="form-inline">
+          
+          <select id="query" name="query">
+            <option value="0">Filter by Budget</option>
+            <option value="1"> Budget < 15000 Tk</option>
+            <option value="2">15,000-20,000 Tk</option>
+            <option value="3">20,001-25,000 Tk</option>
+            <option value="4">25,001-30,000 Tk</option>
+            <option value="5">30,000+ Tk</option>
+            </select>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i><a>Search</a></button>
+         </form>
+    </nav>
+   <!-- <script type="text/javascript">
+        document.getElementById("id_q").value="{{ query }}"
+    </script> -->
+      {% if messages %}
+      {% for message in messages %}
+        <div class=" alert-alert-{{message.tags}}"></div>
+          {{ message }}
+      {% endfor %}
+  {% endif %}
+      
+
+
+<style>
+   .container{
+      border: 3px solid black;
+      margin-top: 3%;
+      background-color: #2c3e50;
+      color: white;
+   }
+   .card{
+      width: 50%;
+      margin: 2%;
+      background-color: #2c3e50;
+      border: 2px solid black;
+
+   }
+
+   .gallery{
+    margin-top: 20px;
+    margin-bottom: 20px;
+   }
+
+   .img-thumbnail{
+    height: 250px;
+    width: 300px;
+   }
+
+</style>
+   <div class="container">
+         <legend class="border-bottom mb-4 text-center"><h3>House Information</h3></legend>
+         <p>Location: {{ advertisement.place}}</p>
+         <p>Address: {{ advertisement.address}}</p>
+         <p>Size: {{ advertisement.size}} Squarefeets</p>
+         <p>Number of Bedrooms: {{ advertisement.bedroom}}</p>
+         <p>Number of Bathrooms:{{ advertisement.bathroom}}</p>
+         <p>Rent: {{ advertisement.rent}} in Tk</p>
+         <div class = "row gallery">
+         {% for p in advertisement.images_set.all %}
+            <div class="col-md -3">
+               <img src="{{ p.image.url }}" width="50%" height="auto" alt="images" class="img-thumbnail">
+            </div>
+         {% endfor %}
+         </div>
+         <legend class="border-bottom mb-4 text-center"><h3>Owner Information</h3></legend>
+         <p>Owner Name: {{ advertisement.owner}}</p>
+         <p>Contact Number: {{ advertisement.number}}</p>
+         {% if advertisement.owner == request.user %}
+         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'advertisement_edit' advertisement.id %}">Update</a>
+         <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'advertisement_delete' advertisement.id %}">Delete</a>
+         {% endif %}
+         
+
+         <br>
+         <hr>
+
+        
+
+
+
+         <div class="main-commment-section">
+          <div class="container-fluid mt-2">
+            <div class="form-group row">
+              <form action ="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <input type="submit" value="Submit" class="btn btn-outline-success">
+              </form>
+              
+            </div>
+            
+           </div>
+            {{ comments.count }} Comment{{ comments|pluralize }}
+            {% for comment in comments %}
+            <blockquote class="blockquote">
+               <p class="mb-0">{{ comment.content }}</p>
+               <footer class="blockquote-footer">Commented by <cite title="Source Title">{{ comment.user|capfirst }}</cite>
+                 <button type ="button" name="button" class ="reply-btn btn btn-outline-success btn-sm">Reply</button>
+
+               </footer>
+             </blockquote>
+
+          <div class="replied-comments container mt-2">
+
+              {% for reply in comment.replies.all %}
+
+
+
+               <blockquote class="blockquote">
+               <p class="mb-0">{{ reply.content }}</p>
+               <footer class="blockquote-footer">replied by <cite title="Source Title">{{ reply.user|capfirst }}</cite>
+                
+
+               </footer>
+               </blockquote>
+              {% endfor %}
+              <div class="form-group row">
+
+
+
+                <form action ="" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="comment_id"  value="{{ comment.id }}" >
+                  {{ form.as_p}}
+                  <input type="submit" value="Submit" class="btn btn-outline-success">
+                </form>
+
+                
+              </div>
+
+               
+             </div>
+
+            {% endfor %}
+         </div>
+    <!--<div class="row gallery">
+      {% for p in advertisement.images_set.all %}
+        <div class="col-md -3">
+           <img src="{{ p.image.url }}" width="50%" height="auto" alt="images">
+        </div>
+      {% endfor %}
+   </div>--> 
+   </div>
+
+                
+
+  
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

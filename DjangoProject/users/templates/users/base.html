@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">  
+    <title>Welcome To BariVara</title>
+</head>
+{% load static %}
+<style>
+    body{
+            margin: 0;
+            padding: 0;
+            background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('/BariVara/static/BariVara/City0.jpg') no-repeat;
+        }
+              
+        nav img{
+            width: 8%;
+            height: auto;
+            margin-left: 45%;
+             
+        }
+        nav form{
+            margin-right: 50px;
+        }
+        nav form button i {
+            margin-right: 3%;
+        }
+        nav form input{
+            border: 1px solid black;
+        }
+        nav form input:hover{
+            background-color:#52BE80;
+        }
+
+        .container form{
+            margin-top: 2%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            border: 2px solid black;
+            text-align: center;
+            color:white;
+            box-shadow: 5px 5px 50px #000;
+            padding-bottom: 2%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .container form input{
+            width: 50%;
+            margin-left: 25%;
+        }
+        .container form input:hover{
+            background-color: #52BE80;
+        }
+
+
+        .card{
+            margin-top: 10%;
+            margin-bottom: 0px;
+            width: 100%;
+            height: 10%;
+            background-color: #0b5345;
+            bottom: 0;
+            
+            
+            
+            
+        }
+        .card img{
+            background-color:#0b5345;
+            border: none;
+            
+        }
+
+
+</style>
+
+
+<body>
+    <nav class="navbar navbar-light " style="background-color: #0b5345">
+        
+        <img src="{% static 'BariVara/Logo.png' %}">
+        
+            
+        </form>
+    </nav>
+    
+    
+    {% block content %}  {% endblock content %}
+    
+
+
+
+<div class="card">
+    <div class="card-header">
+      <h1>Contact Us</h1>
+    </div>
+    <div class="card-body">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=SHADMAN.SAQIF@northsouth.edu.com" > <img src="{% static 'BariVara/gmail.png' %}" alt="gmailLogo" class="img-thumbnail" style="width: 5%;height: 5%;"</a>
+      <img src="{% static 'BariVara/yahoo.png' %}" alt="gmailLogo" class="img-thumbnail" style=" border-radius:50%;margin-left:5%;width: 5%;height: 5%;"> </a>
+    <a href="https://bitbucket.org/Md_Mashrur_Sadat/new-299-project/src/master/" > <img src="{% static 'BariVara/bitbucket.png' %}" alt="bitBucketLogo" class="img-thumbnail" style="margin-left:5%; width: 5%;height:5%;"> </a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+

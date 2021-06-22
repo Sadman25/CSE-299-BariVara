@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BariVara</title>
+</head>
+<style>
+    *{
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        #main{
+            width: 100%;
+            height: 100vh;
+            
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            background-color:#2C3E50 ;
+            line-height: 80px;
+        }
+        nav ul {
+            float:right;
+            margin-right: 20px;
+        }
+        nav ul li {
+            list-style-type: none;
+            display: inline-block;
+            transition: 0.8s all;
+        }
+        nav ul li:hover{
+            background-color:#566573 ;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 30px;
+        }
+
+        .load {
+            animation: slide 2s;
+        }
+        .slider{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            animation: slide 20s infinite;
+        }
+        .content {
+            color:white;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        @keyframes slide {
+            0%{
+                background-image: url('City1.jpg');
+            }
+            20%{
+                background-image: url('City2.jpg');
+            }
+            40%{
+                background-image: url('City3.jpg');
+            }
+            60%{
+                background-image: url('City4.jpg');
+            }
+            80%{
+                background-image: url('City5.jpg');
+            }
+            100%{
+                background-image: url('City1.jpg');
+            }
+        }
+        
+    
+</style>
+<body>
+    <div class="slider">
+        <div class="load">
+        </div>
+        <div class="content">
+            <div class="principal">
+
+
+            <div id="main">
+                <nav>
+                <img src="Logo.png" alt="Logo" width="200px" height="100px" style="margin-left:200px;" >
+                <ul>
+                    <li> <a href="#"> Home </a></li>
+                    <li> <a href="#"> About</a></li>
+                    <li> <a href="#"> Contact </a></li>
+                </ul>
+                </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+        <div class="jumbotron" style="border: 5px solid black;background-color:#2C3E50; color: white;" >
+            <h1 class="display-4">Contacts</h1>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=SHADMAN.SAQIF@northsouth.edu.com" > <img src="gmail.png" alt="gmailLogo" class="img-thumbnail" style="margin-left:650px;width:128px; height:128x;"> </a>
+            <img src="yahoo.png" alt="gmailLogo" class="img-thumbnail" style=" border-radius:50%;margin-left:80px;width:128px; height:128x;"> </a>
+            <a href="https://bitbucket.org/Sadman25/cse-299-barivara/src/master/" > <img src="bitbucket.png" alt="bitBucketLogo" class="img-thumbnail" style="margin-left:80px;width:128px; height:128x;"> </a>
+          </div>
+    </div>	
+</body>
+</html>

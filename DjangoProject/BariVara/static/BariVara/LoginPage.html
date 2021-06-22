@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+            
+        }
+        #main{
+            width: 100%;
+            height: 100vh;
+            background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('City0.jpg') no-repeat;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            background-color:#2C3E50   ;
+            line-height: 80px;
+        }
+        nav img{
+            margin-left: 200px;
+        }
+        nav form {
+            float:right;
+            margin-right: 120px;
+        }
+        nav form input{
+            height: 30px;
+            background: white;
+            
+        }
+        nav form input[type="password"]:hover{
+            border: none;
+            border-bottom: 3px solid black;
+            background: #AAB7B8   ;
+            outline: none;
+
+        }
+        nav form input[type="email"]:hover{
+            border: none;
+            border-bottom: 3px solid black;
+            background: #AAB7B8    ;
+            outline: none;
+        }
+        nav form input[type="submit"]{
+            border: 3px solid black;
+            background: #2C3E50;
+            color: white;
+            width: 80px;
+        }
+        nav form input[type="submit"]:hover{
+            background: #566573 ;
+        } /* Css for NavBar Ends here*/     
+
+
+
+
+ .wrapper{
+    width: 650px;
+    height: 650px;
+    color:white;
+    background-color: #566573;
+    top: 50%;
+    left: 70%;
+    padding: 60px 30px;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    box-sizing: border-box;
+    box-shadow: 10px 10px 50px #000 ;
+}
+
+.wrapper p {
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 180px;
+}
+.wrapper h1{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.wrapper form input{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background: transparent;
+    
+    
+}
+
+.wrapper form input[type="submit"]{
+    background-color:#566573  ;
+    margin-left: 230px;
+    width: 100px;
+    font-size: 22px;
+    border: none;
+    border-bottom: 3px solid black;
+    
+}
+
+.wrapper form input[type="submit"]:hover{
+    background-color:#808B96   ;
+}
+.wrapper form input[type="text"], input[type="password"], input[type="email"]{
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background: transparent;
+}
+.wrapper form input[type="text"]:hover{
+    background-color:#808B96   ;
+}
+.wrapper form input[type="password"]:hover{
+    background-color:#808B96   ;
+}
+.wrapper form input[type="email"]:hover{
+    background-color:#808B96   ;
+}
+
+
+</style>
+
+<body>
+    <div id="main">
+        
+        <nav>
+        <img src="Logo.png" alt="Logo" width="200px" height="100px"  >
+            <form action="">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="submit" value="Log In">
+            </form>
+        </nav>
+        <div class="wrapper">
+            <img src="followers.png" alt="Logo" width="128px" height="128px" style="margin-left: 230px; margin-bottom: 10px;">
+            <h1>Create An Account</h1>
+            <p>Quicker, Easier and Faster</p>
+            <form action="">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Phone Number">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                
+                
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+
+        
+        
+    </div>
+    
+
+
+
+
+    <div class="footer">
+        <div class="jumbotron" style="border: 10px solid black;background-color:#2C3E50; color: white;" >
+            <h1 class="display-4">Contacts</h1>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=SHADMAN.SAQIF@northsouth.edu.com" > <img src="gmail.png" alt="gmailLogo" class="img-thumbnail" style="margin-left:650px;width:128px; height:128x;"> </a>
+            <img src="yahoo.png" alt="gmailLogo" class="img-thumbnail" style=" border-radius:50%;margin-left:80px;width:128px; height:128x;"> </a>
+            <a href="https://bitbucket.org/Sadman25/cse-299-barivara/src/master/" > <img src="bitbucket.png" alt="bitBucketLogo" class="img-thumbnail" style="margin-left:80px;width:128px; height:128x;"> </a>
+          </div>
+    </div>
+</body>
+</html>
